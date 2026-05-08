@@ -1,7 +1,7 @@
 # React Vite TypeScript Authentication + Dashboard Project
 
 This project is built using React, Vite, and TypeScript.
-It includes an authentication system (Login/Register) and a dashboard system using layouts.
+It includes an authentication system and a full dashboard with sidebar navigation pages.
 
 ---
 
@@ -54,10 +54,12 @@ npm install @mui/icons-material
 - Navigation between login and register
 
 ## Dashboard System
-- MainLayout (Dashboard layout with sidebar)
-- Dashboard page inside layout
+- MainLayout with sidebar navigation
+- Dashboard home page
+- Users page
+- Settings page
+- Profile page
 - Logout functionality (basic navigation)
-- Scalable structure for future pages
 
 ---
 
@@ -75,16 +77,30 @@ src/layouts/AuthLayout.tsx
 
 ---
 
-## MainLayout
-Used for dashboard system:
+## MainLayout (Dashboard Layout)
+Used for the main application after login:
 - Sidebar navigation
-- Main dashboard layout
 - Outlet for nested pages
+- Dashboard system structure
 
 Location:
 ```
 src/layouts/MainLayout.tsx
 ```
+
+---
+
+# Pages
+
+## Authentication Pages
+- Login → `/login`
+- Register → `/register`
+
+## Dashboard Pages
+- Dashboard → `/dashboard`
+- Users → `/dashboard/users`
+- Settings → `/dashboard/settings`
+- Profile → `/dashboard/profile`
 
 ---
 
@@ -99,16 +115,11 @@ src/layouts/MainLayout.tsx
 
 <Route path="/dashboard" element={<MainLayout />}>
   <Route index element={<Dashboard />} />
+  <Route path="users" element={<Users />} />
+  <Route path="settings" element={<Settings />} />
+  <Route path="profile" element={<Profile />} />
 </Route>
 ```
-
----
-
-# App Flow
-
-- `/login` → Login page
-- `/register` → Register page
-- `/dashboard` → Main dashboard (protected layout)
 
 ---
 
@@ -122,11 +133,26 @@ src/
  ├── pages/
  │    ├── Login.tsx
  │    ├── Register.tsx
- │    └── Dashboard.tsx
+ │    ├── Dashboard.tsx
+ │    ├── Users.tsx
+ │    ├── Settings.tsx
+ │    └── Profile.tsx
  ├── App.tsx
  ├── main.tsx
  └── index.css
 ```
+
+---
+
+# App Flow
+
+1. User opens app → redirected to `/login`
+2. Login → redirected to `/dashboard`
+3. Sidebar navigation:
+   - Users
+   - Settings
+   - Profile
+4. Logout → back to login
 
 ---
 
