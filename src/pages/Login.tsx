@@ -1,8 +1,17 @@
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // later you will validate real auth here
+    navigate("/dashboard");
+  };
+
   return (
-    <form className="space-y-4">
+    <form onSubmit={handleLogin} className="space-y-4">
       
       <h2 className="text-xl font-bold text-center mb-4">
         Login
@@ -24,8 +33,7 @@ const Login = () => {
         Login
       </button>
 
-      {/* Go to register */}
-      <p className="text-center text-sm mt-2">
+      <p className="text-center text-sm">
         Don't have an account?{" "}
         <Link to="/register" className="text-blue-600">
           Register
