@@ -1,73 +1,155 @@
-# React + TypeScript + Vite
+# React Vite TypeScript Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is built using React with Vite and TypeScript.
+The project also uses Tailwind CSS and Material UI for styling and UI components.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+# Technologies Used
 
-## React Compiler
+- React
+- Vite
+- TypeScript
+- Tailwind CSS
+- Material UI (MUI)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+# Packages Installed
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Main Packages
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Tailwind CSS
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install tailwindcss @tailwindcss/vite
 ```
+
+## Material UI
+
+```bash
+npm install @mui/material @emotion/react @emotion/styled
+```
+
+## Material UI Icons
+
+```bash
+npm install @mui/icons-material
+```
+
+---
+
+# Project Setup Steps
+
+## 1. Create Vite Project
+
+```bash
+npm create vite@latest
+```
+
+Choose:
+- React
+- TypeScript
+
+---
+
+## 2. Install Dependencies
+
+```bash
+npm install
+```
+
+---
+
+## 3. Install Tailwind CSS
+
+```bash
+npm install tailwindcss @tailwindcss/vite
+```
+
+---
+
+## 4. Configure Vite
+
+Edit `vite.config.ts`
+
+```ts
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
+
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+})
+```
+
+---
+
+## 5. Configure Tailwind CSS
+
+Edit `src/index.css`
+
+```css
+@import "tailwindcss";
+```
+
+---
+
+## 6. Install Material UI
+
+```bash
+npm install @mui/material @emotion/react @emotion/styled
+```
+
+---
+
+## 7. Install Material UI Icons
+
+```bash
+npm install @mui/icons-material
+```
+
+---
+
+# Run the Project
+
+```bash
+npm run dev
+```
+
+---
+
+# Project Structure
+
+```txt
+src/
+ ├── components/
+ ├── pages/
+ ├── layouts/
+ ├── hooks/
+ ├── services/
+ ├── types/
+ ├── App.tsx
+ ├── main.tsx
+ └── index.css
+```
+
+---
+
+# Features
+
+- Fast development using Vite
+- Strong typing using TypeScript
+- Responsive design using Tailwind CSS
+- Ready-to-use UI components using Material UI
+- Clean project structure
+
+---
+
+# Author
+
+Mohamad Jamal
