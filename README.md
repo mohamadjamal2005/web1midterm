@@ -1,7 +1,7 @@
-# React Vite TypeScript Authentication Project
+# React Vite TypeScript Authentication + Dashboard Project
 
-This project is a simple authentication UI built using React, Vite, and TypeScript.
-It includes Login and Register pages with routing and a shared AuthLayout.
+This project is built using React, Vite, and TypeScript.
+It includes an authentication system (Login/Register) and a dashboard system using layouts.
 
 ---
 
@@ -47,46 +47,43 @@ npm install @mui/icons-material
 
 # Project Features
 
-- Fast development using Vite
-- Strong typing with TypeScript
-- Responsive UI using Tailwind CSS
-- Material UI components support
-- React Router navigation
-- Authentication layout (AuthLayout)
+## Authentication System
 - Login page
 - Register page
-- Navigation between Login and Register
+- Shared AuthLayout
+- Navigation between login and register
+
+## Dashboard System
+- MainLayout (Dashboard layout with sidebar)
+- Dashboard page inside layout
+- Logout functionality (basic navigation)
+- Scalable structure for future pages
 
 ---
 
-# Authentication System
+# Layout Structure
 
-## Pages Included
+## AuthLayout
+Used for authentication pages:
+- Login
+- Register
 
-- Login Page → `/login`
-- Register Page → `/register`
-
-Both pages are wrapped inside a shared layout:
-
+Location:
 ```
-AuthLayout
-```
-
----
-
-# AuthLayout
-
-A reusable layout used for authentication pages.
-
-### Features:
-- Centered form design
-- Card UI
-- Responsive layout
-- Uses React Router `<Outlet />`
-
-### Location:
-```txt
 src/layouts/AuthLayout.tsx
+```
+
+---
+
+## MainLayout
+Used for dashboard system:
+- Sidebar navigation
+- Main dashboard layout
+- Outlet for nested pages
+
+Location:
+```
+src/layouts/MainLayout.tsx
 ```
 
 ---
@@ -95,22 +92,41 @@ src/layouts/AuthLayout.tsx
 
 ```tsx
 <Route path="/" element={<AuthLayout />}>
-
   <Route index element={<Navigate to="/login" />} />
-
   <Route path="login" element={<Login />} />
   <Route path="register" element={<Register />} />
+</Route>
 
+<Route path="/dashboard" element={<MainLayout />}>
+  <Route index element={<Dashboard />} />
 </Route>
 ```
 
 ---
 
-# Navigation Flow
+# App Flow
 
-- Login page → link to Register
-- Register page → link to Login
-- Default route redirects to Login
+- `/login` → Login page
+- `/register` → Register page
+- `/dashboard` → Main dashboard (protected layout)
+
+---
+
+# Project Structure
+
+```txt
+src/
+ ├── layouts/
+ │    ├── AuthLayout.tsx
+ │    └── MainLayout.tsx
+ ├── pages/
+ │    ├── Login.tsx
+ │    ├── Register.tsx
+ │    └── Dashboard.tsx
+ ├── App.tsx
+ ├── main.tsx
+ └── index.css
+```
 
 ---
 
@@ -122,25 +138,9 @@ npm run dev
 
 ---
 
-# Project Structure
-
-```txt
-src/
- ├── layouts/
- │    └── AuthLayout.tsx
- ├── pages/
- │    ├── Login.tsx
- │    └── Register.tsx
- ├── App.tsx
- ├── main.tsx
- └── index.css
-```
-
----
-
 # Chat Reference
 
-Project setup discussion:
+Project development discussion and setup guide:
 
 https://chatgpt.com/share/69fd8fdb-dcd8-83eb-a0cf-1abb728066dd
 
