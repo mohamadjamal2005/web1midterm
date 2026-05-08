@@ -128,14 +128,11 @@ npm run dev
 ```txt
 src/
  ├── components/
- ├── pages/
  ├── layouts/
- ├── hooks/
  ├── services/
- ├── types/
  ├── App.tsx
+ ├── index.css
  ├── main.tsx
- └── index.css
 ```
 
 ---
@@ -147,6 +144,14 @@ src/
 - Responsive design using Tailwind CSS
 - Ready-to-use UI components using Material UI
 - Clean project structure
+
+---
+
+# Chat Link
+
+Project development discussion and setup guide:
+
+https://chatgpt.com/share/69fd8fdb-dcd8-83eb-a0cf-1abb728066dd
 
 ---
 
