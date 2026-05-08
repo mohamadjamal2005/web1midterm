@@ -1,22 +1,23 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import AuthLayout from "./layouts/AuthLayout";
-import Login from "./login_page/Login";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
 
-        {/* Auth Layout */}
         <Route path="/" element={<AuthLayout />}>
-          
-          {/* Default route → Login */}
-          <Route index element={<Login />} />
+
+          <Route index element={<Navigate to="/login" />} />
+
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
 
         </Route>
 
-        {/* Redirect any unknown route to login */}
-        <Route path="*" element={<Navigate to="/" />} />
+        <Route path="*" element={<Navigate to="/login" />} />
 
       </Routes>
     </BrowserRouter>

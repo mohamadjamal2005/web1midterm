@@ -1,7 +1,7 @@
-# React Vite TypeScript Project
+# React Vite TypeScript Authentication Project
 
-This project is built using React with Vite and TypeScript.
-It includes Tailwind CSS, Material UI, and an authentication layout system.
+This project is a simple authentication UI built using React, Vite, and TypeScript.
+It includes Login and Register pages with routing and a shared AuthLayout.
 
 ---
 
@@ -18,32 +18,27 @@ It includes Tailwind CSS, Material UI, and an authentication layout system.
 
 # Packages Installed
 
-## Main Setup
-
+## Install all dependencies
 ```bash
 npm install
 ```
 
 ## Routing
-
 ```bash
 npm install react-router-dom
 ```
 
 ## Tailwind CSS
-
 ```bash
 npm install tailwindcss @tailwindcss/vite
 ```
 
 ## Material UI
-
 ```bash
 npm install @mui/material @emotion/react @emotion/styled
 ```
 
 ## Material UI Icons
-
 ```bash
 npm install @mui/icons-material
 ```
@@ -55,43 +50,67 @@ npm install @mui/icons-material
 - Fast development using Vite
 - Strong typing with TypeScript
 - Responsive UI using Tailwind CSS
-- Ready-made components with Material UI
-- Multi-page routing using React Router
-- Authentication layout system (AuthLayout)
+- Material UI components support
+- React Router navigation
+- Authentication layout (AuthLayout)
+- Login page
+- Register page
+- Navigation between Login and Register
 
 ---
 
-# Authentication Layout (AuthLayout)
+# Authentication System
 
-The project includes a reusable authentication layout that wraps all auth-related pages such as:
+## Pages Included
 
-- Login Page
-- Register Page
-- Forgot Password Page
+- Login Page → `/login`
+- Register Page → `/register`
 
-### Features:
-
-- Centered form design
-- Responsive layout
-- Clean card UI
-- Uses React Router `<Outlet />` for nested routes
-
-### File Location:
+Both pages are wrapped inside a shared layout:
 
 ```
+AuthLayout
+```
+
+---
+
+# AuthLayout
+
+A reusable layout used for authentication pages.
+
+### Features:
+- Centered form design
+- Card UI
+- Responsive layout
+- Uses React Router `<Outlet />`
+
+### Location:
+```txt
 src/layouts/AuthLayout.tsx
 ```
 
 ---
 
-# Example Routes Structure
+# Routing Structure
 
 ```tsx
 <Route path="/" element={<AuthLayout />}>
+
+  <Route index element={<Navigate to="/login" />} />
+
   <Route path="login" element={<Login />} />
   <Route path="register" element={<Register />} />
+
 </Route>
 ```
+
+---
+
+# Navigation Flow
+
+- Login page → link to Register
+- Register page → link to Login
+- Default route redirects to Login
 
 ---
 
@@ -107,11 +126,11 @@ npm run dev
 
 ```txt
 src/
- ├── components/
  ├── layouts/
  │    └── AuthLayout.tsx
- ├── login_page/
- │    └── Login.tsx
+ ├── pages/
+ │    ├── Login.tsx
+ │    └── Register.tsx
  ├── App.tsx
  ├── main.tsx
  └── index.css
@@ -121,7 +140,7 @@ src/
 
 # Chat Reference
 
-Project development discussion and setup guide:
+Project setup discussion:
 
 https://chatgpt.com/share/69fd8fdb-dcd8-83eb-a0cf-1abb728066dd
 
