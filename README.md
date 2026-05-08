@@ -1,7 +1,7 @@
 # React Vite TypeScript Project
 
 This project is built using React with Vite and TypeScript.
-The project also uses Tailwind CSS and Material UI for styling and UI components.
+It includes Tailwind CSS, Material UI, and an authentication layout system.
 
 ---
 
@@ -10,6 +10,7 @@ The project also uses Tailwind CSS and Material UI for styling and UI components
 - React
 - Vite
 - TypeScript
+- React Router DOM
 - Tailwind CSS
 - Material UI (MUI)
 
@@ -17,10 +18,16 @@ The project also uses Tailwind CSS and Material UI for styling and UI components
 
 # Packages Installed
 
-## Main Packages
+## Main Setup
 
 ```bash
 npm install
+```
+
+## Routing
+
+```bash
+npm install react-router-dom
 ```
 
 ## Tailwind CSS
@@ -43,74 +50,47 @@ npm install @mui/icons-material
 
 ---
 
-# Project Setup Steps
+# Project Features
 
-## 1. Create Vite Project
-
-```bash
-npm create vite@latest
-```
-
-Choose:
-- React
-- TypeScript
+- Fast development using Vite
+- Strong typing with TypeScript
+- Responsive UI using Tailwind CSS
+- Ready-made components with Material UI
+- Multi-page routing using React Router
+- Authentication layout system (AuthLayout)
 
 ---
 
-## 2. Install Dependencies
+# Authentication Layout (AuthLayout)
 
-```bash
-npm install
+The project includes a reusable authentication layout that wraps all auth-related pages such as:
+
+- Login Page
+- Register Page
+- Forgot Password Page
+
+### Features:
+
+- Centered form design
+- Responsive layout
+- Clean card UI
+- Uses React Router `<Outlet />` for nested routes
+
+### File Location:
+
 ```
-
----
-
-## 3. Install Tailwind CSS
-
-```bash
-npm install tailwindcss @tailwindcss/vite
-```
-
----
-
-## 4. Configure Vite
-
-Edit `vite.config.ts`
-
-```ts
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
-
-export default defineConfig({
-  plugins: [react(), tailwindcss()],
-})
+src/layouts/AuthLayout.tsx
 ```
 
 ---
 
-## 5. Configure Tailwind CSS
+# Example Routes Structure
 
-Edit `src/index.css`
-
-```css
-@import "tailwindcss";
-```
-
----
-
-## 6. Install Material UI
-
-```bash
-npm install @mui/material @emotion/react @emotion/styled
-```
-
----
-
-## 7. Install Material UI Icons
-
-```bash
-npm install @mui/icons-material
+```tsx
+<Route path="/" element={<AuthLayout />}>
+  <Route path="login" element={<Login />} />
+  <Route path="register" element={<Register />} />
+</Route>
 ```
 
 ---
@@ -129,25 +109,17 @@ npm run dev
 src/
  ├── components/
  ├── layouts/
- ├── services/
+ │    └── AuthLayout.tsx
+ ├── login_page/
+ │    └── Login.tsx
  ├── App.tsx
- ├── index.css
  ├── main.tsx
+ └── index.css
 ```
 
 ---
 
-# Features
-
-- Fast development using Vite
-- Strong typing using TypeScript
-- Responsive design using Tailwind CSS
-- Ready-to-use UI components using Material UI
-- Clean project structure
-
----
-
-# Chat Link
+# Chat Reference
 
 Project development discussion and setup guide:
 
