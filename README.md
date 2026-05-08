@@ -1,7 +1,7 @@
 # React Vite TypeScript Authentication + Dashboard Project
 
 This project is built using React, Vite, and TypeScript.
-It includes an authentication system and a full dashboard with sidebar navigation pages.
+It includes an authentication system and a full dashboard with sidebar navigation and settings management.
 
 ---
 
@@ -57,9 +57,35 @@ npm install @mui/icons-material
 - MainLayout with sidebar navigation
 - Dashboard home page
 - Users page
-- Settings page
+- Settings page (Tailwind + Material UI)
 - Profile page
-- Logout functionality (basic navigation)
+- Logout functionality
+
+---
+
+# Settings Page
+
+The Settings page is built using a hybrid approach:
+
+- Tailwind CSS → layout, spacing, styling
+- Material UI → inputs, switches, buttons
+
+### Features:
+- Update username and email fields
+- Toggle Dark Mode
+- Toggle Email Notifications
+- Save Changes button
+
+### UI Components Used:
+- TextField (MUI)
+- Switch (MUI)
+- Button (MUI)
+- Tailwind card layout
+
+### Location:
+```
+src/pages/Settings.tsx
+```
 
 ---
 
@@ -70,7 +96,6 @@ Used for authentication pages:
 - Login
 - Register
 
-Location:
 ```
 src/layouts/AuthLayout.tsx
 ```
@@ -78,12 +103,11 @@ src/layouts/AuthLayout.tsx
 ---
 
 ## MainLayout (Dashboard Layout)
-Used for the main application after login:
+Used for the main application:
 - Sidebar navigation
-- Outlet for nested pages
-- Dashboard system structure
+- Nested pages system
+- Dashboard structure
 
-Location:
 ```
 src/layouts/MainLayout.tsx
 ```
@@ -92,15 +116,15 @@ src/layouts/MainLayout.tsx
 
 # Pages
 
-## Authentication Pages
-- Login → `/login`
-- Register → `/register`
+## Auth Pages
+- `/login`
+- `/register`
 
 ## Dashboard Pages
-- Dashboard → `/dashboard`
-- Users → `/dashboard/users`
-- Settings → `/dashboard/settings`
-- Profile → `/dashboard/profile`
+- `/dashboard`
+- `/dashboard/users`
+- `/dashboard/settings`
+- `/dashboard/profile`
 
 ---
 
@@ -148,11 +172,11 @@ src/
 
 1. User opens app → redirected to `/login`
 2. Login → redirected to `/dashboard`
-3. Sidebar navigation:
+3. Dashboard navigation:
    - Users
    - Settings
    - Profile
-4. Logout → back to login
+4. Logout → returns to login
 
 ---
 
