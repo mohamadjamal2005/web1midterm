@@ -4,7 +4,6 @@ const MainLayout = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // later: clear auth token
     navigate("/login");
   };
 
@@ -16,23 +15,46 @@ const MainLayout = () => {
         <h2 className="text-xl font-bold mb-6">Dashboard</h2>
 
         <nav className="space-y-2">
+
           <button
             onClick={() => navigate("/dashboard")}
-            className="block w-full text-left p-2 hover:bg-gray-100 rounded"
+            className="w-full text-left p-2 hover:bg-gray-100 rounded"
           >
             Home
           </button>
 
           <button
+            onClick={() => navigate("/dashboard/users")}
+            className="w-full text-left p-2 hover:bg-gray-100 rounded"
+          >
+            Users
+          </button>
+
+          <button
+            onClick={() => navigate("/dashboard/settings")}
+            className="w-full text-left p-2 hover:bg-gray-100 rounded"
+          >
+            Settings
+          </button>
+
+          <button
+            onClick={() => navigate("/dashboard/profile")}
+            className="w-full text-left p-2 hover:bg-gray-100 rounded"
+          >
+            Profile
+          </button>
+
+          <button
             onClick={handleLogout}
-            className="block w-full text-left p-2 text-red-500 hover:bg-red-50 rounded"
+            className="w-full text-left p-2 text-red-500 hover:bg-red-50 rounded"
           >
             Logout
           </button>
+
         </nav>
       </aside>
 
-      {/* Main Content */}
+      {/* Content */}
       <main className="flex-1 p-6">
         <Outlet />
       </main>
